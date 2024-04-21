@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const random = (min, max) => {
+    return Math.floor((Math.random() * (max - min + 1)) + min);
+  };
+
+  const [randomIndex, setRandomIndex] = useState(random(1, 3));
+
+  const handleClick = () => {
+    setRandomIndex(random(1, 3));
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div style={{ display: 'flex' }}>
+        <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
+          <img src={`./img/${(randomIndex+1) % 3}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
+        </div>
+        <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
+          <img src={`./img/${(randomIndex +2) % 3}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
+        </div>
+        <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
+          <img src={`./img/${(randomIndex + 3) % 3}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div style={{ display: 'flex' }}>
+        <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
+          <img src={`./img/${(randomIndex + 1) % 3}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
+        </div>
+        <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
+          <img src={`./img/${(randomIndex + 6) % 3}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
+        </div>
+        <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
+          <img src={`./img/${(randomIndex +7 ) % 3}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
-
-export default App
