@@ -15,24 +15,24 @@ export default function App() {
     <>
       <div style={{ display: 'flex' }}>
         <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-          <img src={`./img/${(randomIndex+1) % 3}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
+          <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={()=>handleClick} />
         </div>
         <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-          <img src={`./img/${(randomIndex +2) % 3}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
+        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={()=>handleClick} />
         </div>
         <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-          <img src={`./img/${(randomIndex + 3) % 3}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
+        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={()=>handleClick} />
         </div>
       </div>
       <div style={{ display: 'flex' }}>
         <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-          <img src={`./img/${(randomIndex + 1) % 3}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
+        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={()=>handleClick} />
         </div>
         <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-          <img src={`./img/${(randomIndex + 6) % 3}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
+        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={()=>handleClick} />
         </div>
         <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-          <img src={`./img/${(randomIndex +7 ) % 3}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
+        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={()=>handleClick} />
         </div>
       </div>
     </>
