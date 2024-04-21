@@ -6,33 +6,37 @@ export default function App() {
   };
 
   const [randomIndex, setRandomIndex] = useState(random(1, 3));
-
+  
+  
+useEffect(()=>{
   const handleClick = () => {
     setRandomIndex(random(1, 3));
   };
+}
 
   return (
     <>
+    {getPersonsInfo(ditto)}
       <div style={{ display: 'flex' }}>
         <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-          <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={()=>handleClick} />
+          <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
         </div>
         <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={()=>handleClick} />
+        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
         </div>
         <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={()=>handleClick} />
+        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={caller} />
         </div>
       </div>
       <div style={{ display: 'flex' }}>
         <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={()=>handleClick} />
+        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={ caller} />
         </div>
         <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={()=>handleClick} />
+        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={ caller} />
         </div>
         <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={()=>handleClick} />
+        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={caller} />
         </div>
       </div>
     </>
