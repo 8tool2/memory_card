@@ -1,6 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function App() {
+
+  const { NekosAPI } = require("nekosapi");
+ 
+  const nekos = new NekosAPI();
+
+useEffect(()=>{nekos.getRandomImage((categories = ["catgirl"])).then((image) => {
+  console.log(image.url);
+}); 
+},[])
+
+
+
+  const [imageLink, setImageLink] = useState("")
   const random = (min, max) => {
     return Math.floor((Math.random() * (max - min + 1)) + min);
   };
@@ -12,6 +25,21 @@ export default function App() {
     }
     return array;
   };
+
+  useEffect(()=>{
+    fetch('https://pokeapi.co/api/v2/pokemon/ditto',{mode:'cors'}
+  ).then(response => response.json()
+)
+  .then(response => {
+    console.log(response);
+    setImageLink(response.sprites.front_shiny)
+  }); 
+ 
+    
+  },[]);
+
+
+ 
 
   const [randomIndexes, setRandomIndexes] = useState(randomArray(1, 3, 3));
 
@@ -31,6 +59,11 @@ export default function App() {
           </div>
          
         ))}
+
+            <div style={{margin: '5px',  padding : '10px', border: "25px" } }>
+            <img src={imageLink} height={'250px'}  width = {'250px'}  onClick={handleClick}/>
+            {console.log(imageLink)}
+          </div>
          
        
           {randomIndexes.map((name, index) => (
