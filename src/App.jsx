@@ -5,40 +5,47 @@ export default function App() {
     return Math.floor((Math.random() * (max - min + 1)) + min);
   };
 
-  const [randomIndex, setRandomIndex] = useState(random(1, 3));
-  
-  
-useEffect(()=>{
-  const handleClick = () => {
-    setRandomIndex(random(1, 3));
+  const randomArray = (min, max, length) => {
+    let array = [];
+    for (let i = 0; i < length; i++) {
+      array.push(random(min, max));
+    }
+    return array;
   };
-}
+
+  const [randomIndexes, setRandomIndexes] = useState(randomArray(1, 3, 3));
+
+  const handleClick = () => {
+    setRandomIndexes(randomArray(1, 3, 3));
+  };
 
   return (
     <>
-    {getPersonsInfo(ditto)}
-      <div style={{ display: 'flex' }}>
-        <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-          <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
-        </div>
-        <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={handleClick} />
-        </div>
-        <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={caller} />
-        </div>
-      </div>
-      <div style={{ display: 'flex' }}>
-        <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={ caller} />
-        </div>
-        <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={ caller} />
-        </div>
-        <div style={{ border: 'white 2px solid', margin: '20px', padding: '120px' }}>
-        <img src={`./img/${randomIndex}.jpg`} alt="One" height='100px' width='100px' onClick={caller} />
-        </div>
-      </div>
+       <div style={{ display: 'flex' }}> 
+         
+        {randomIndexes.map((name, index) => (
+         
+          <div key={index}  style={{margin: '5px',  padding : '10px', border: "25px" } }>
+            <img src={`./img/${name}.jpg`} alt={`Image ${index}`} height={'250px'}  width = {'250px'}  onClick={handleClick}/>
+            {console.log(randomIndexes)}
+          </div>
+         
+        ))}
+         
+       
+          {randomIndexes.map((name, index) => (
+         
+         <div key={index}  style={{margin: '5px',  padding : '10px', border: "25px" } }>
+           <img src={`./img/${name}.jpg`} alt={`Image ${index}`} height={'250px'}  width = {'250px'} onClick={handleClick} />
+           {console.log(randomIndexes)}
+         </div>
+        
+       ))} 
+       
+         </div>
+         
+   
+ 
     </>
   );
 }
