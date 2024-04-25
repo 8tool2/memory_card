@@ -13,7 +13,7 @@ export default function App() {
     return array;
   };
 
-  const [randomIndexess, setRandomIndexes] = useState(randomArray(1, 3, 3));
+  const [randomIndexes, setRandomIndexes] = useState(randomArray(1, 3, 3));
 
   const handleClick = () => {
     setRandomIndexes(randomArray(1, 3, 3));
